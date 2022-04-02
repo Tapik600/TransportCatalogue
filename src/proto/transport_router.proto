@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package proto;
+
+import "graph.proto";
+
+message TransportRouter {
+    message RouteInternalData {
+        double weight = 1;
+        uint32 prev_edge_id = 2;
+        bool is_prev_edge = 3;
+    }
+    message RouteInternalDataRow {
+        repeated RouteInternalData row = 1;
+    }
+    repeated RouteInternalDataRow routes_internal_data = 1;
+
+    message EdgeInfo {
+        uint32 name_id = 1;
+        double time = 2;
+        int32 span_count = 3;
+        bool is_bus_edge = 4;
+    }
+    repeated EdgeInfo edges_info = 2;
+
+    message StopVertexes {
+        uint32 stop_id = 1;
+        uint32 in = 2;
+        uint32 out = 3;
+    }
+    repeated StopVertexes stops_vertex_ids = 3;
+
+    Graph graph = 4;
+}
+
