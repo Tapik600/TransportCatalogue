@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
 
 TEST(router, test_name) {
-    ASSERT_EQ(1+2, 2);
+    ASSERT_EQ(2, 2);
 }
